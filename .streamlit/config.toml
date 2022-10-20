@@ -1,0 +1,9 @@
+[server]
+port = 8000
+
+[theme]
+primaryColor="#aedba5"
+backgroundColor="#83b3e0"
+secondaryBackgroundColor="#79c26a"
+textColor="#262730"
+font="sans serif"
