@@ -11,8 +11,28 @@ import pandas as pd
 import numpy as np
 
 st.image('CMAQToolkitLogo.png')
-st.title('CMAQ Toolkit Teleworking Tool')
+'''
+# Bicycle and Pedestrian Improvements
 
+This calculator will estimate the reduction in emissions resulting from 
+improvements to bicycle and pedestrian infrastructure and associated mode
+shift from passenger vehicles to bicycling or walking, including but not 
+limited to sidewalks, dedicated bicycle infrastructure, improved wayfinding, 
+mid-block crossing installations, bike share systems, and bike parking 
+improvements.
+
+## INPUT										
+        
+'''
+st.button('Reset Inputs')
+yearSelect = range(2018, 2041)
+col1, col2 = st.columns(2)
+with col1:
+    '''
+        What is your project evaluation year?'''
+
+with col2:
+    year = st.selectbox('Project Evaluation Year', yearSelect, label_visibility='collapsed')
 
 
 #  This is the pywebio hello-world
