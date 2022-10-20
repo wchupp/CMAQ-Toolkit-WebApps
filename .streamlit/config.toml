@@ -1,6 +1,3 @@
-[server]
-port = 8000
-
 [theme]
 primaryColor="#aedba5"
 backgroundColor="#83b3e0"
