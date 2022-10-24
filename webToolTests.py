@@ -49,7 +49,7 @@ with st.container():
     '**Daily Passenger Vehicle Trips**'
     
     ############
-    # Before After Input Table
+    ## Before After Input Table
     df = pd.DataFrame({'Before':[st.session_state.BeforeAfterTrips[0]], 'After':[st.session_state.BeforeAfterTrips[1]]})
     
     reload_data = False
@@ -63,7 +63,7 @@ with st.container():
     go = builder.build()
 
     gridData = AgGrid(df, gridOptions=go, theme='balham', height=63, fit_columns_on_grid_load=True, \
-                      reload_data=reload_data, key="beforeAfterGrid", update_mode = GridUpdateMode.MODEL_CHANGED)
+                      reload_data=reload_data, key="beforeAfterGrid", update_mode = GridUpdateMode.MODEL_CHANGED, enable_enterprise_modules=False)
     
     new_data = gridData['data']
     if resetPressed:
@@ -72,7 +72,8 @@ with st.container():
         new_data['Change'] = int(new_data['Before']) -  int(new_data['After'])
     
     st.session_state.BeforeAfterTrips = [int(new_data['Before']), int(new_data['After'])]
-    
+
+ 
     ##############
     # Average Trip Distance Inputs
     
@@ -97,7 +98,7 @@ with st.container():
                 '**(3b)** Enter the typical average one-way trip distance.'
             with col2:
                 '**Typical Trip Distance (miles one way)**'
-                st.number_input('Trip Distance', label_visibility='collapsed')
+                aveTripDistance = st.number_input('Trip Distance', label_visibility='collapsed')
         elif distSource == 'Distribution':
             '**(3b)** Enter the typical distribution of one-way trip distances.'
             dist = pd.DataFrame(data = [[0, 0, 0, 0, 0]], columns = ['x < 1', '1 < x < 2', '2 < x < 3', '3 < x < 4', '4 < x < 5'])
@@ -109,6 +110,6 @@ with st.container():
                                      type='rightAligned', editable=False)
             go = builder.build()
             
-            gridData = AgGrid(dist, theme='balham', height=63, fit_columns_on_grid_load=True, gridOptions=go)
+            gridData = AgGrid(dist, theme='balham', height=63, fit_columns_on_grid_load=True, gridOptions=go, enable_enterprise_modules=False)
 
             
