@@ -12,6 +12,8 @@ import numpy as np
 from st_aggrid import AgGrid
 from st_aggrid import GridOptionsBuilder, JsCode, GridUpdateMode
 
+EmissionsData = pd.read_csv('EmissionsData.csv')
+
 if 'BeforeAfterTrips' not in st.session_state:
     st.session_state.BeforeAfterTrips = [0, 0]
 
@@ -20,6 +22,7 @@ def reset():
     st.session_state.BeforeAfterTrips = [0, 0]
     st.session_state.tripDistanceSource = 'Select'
 
+st.image('CMAQToolkitLogo.png')
 with st.container():
     '''
     # Bicycle and Pedestrian Improvements
@@ -104,12 +107,31 @@ with st.container():
             dist = pd.DataFrame(data = [[0, 0, 0, 0, 0]], columns = ['x < 1', '1 < x < 2', '2 < x < 3', '3 < x < 4', '4 < x < 5'])
             
             builder = GridOptionsBuilder.from_dataframe(dist)
-            builder.configure_default_column(resizable=False, filterable=False, sortable=False, suppressMenu=True, editable=True, enterMovesDown=True)
+            builder.configure_default_column(resizable=False, filterable=False, 
+                                             sortable=False, suppressMenu=True, 
+                                             editable=True, enterMovesDown=True,
+                                             valueFormatter='value + "%"')
             builder.configure_column("Sum", 
                                      valueGetter='Number(data["x < 1"])+Number(data["1 < x < 2"])+Number(data["2 < x < 3"])+Number(data["3 < x < 4"])+Number(data["4 < x < 5"])', 
                                      type='rightAligned', editable=False)
             go = builder.build()
             
-            gridData = AgGrid(dist, theme='balham', height=63, fit_columns_on_grid_load=True, gridOptions=go, enable_enterprise_modules=False)
-
+            distGridData = AgGrid(dist, theme='balham', height=63, fit_columns_on_grid_load=True, gridOptions=go, enable_enterprise_modules=False)
+            newDist = distGridData['data']
+            
+    '## Output'
+    calculate = st.button('Calculate')
+    output_df = pd.DataFrame(data={'Pollutant': ['Carbon Monoxide (CO)',
+                                    'Particulate Matter <2.5 μm (PM2.5)',
+                                    'Particulate Matter <10 μm (PM10)',
+                                    'Nitrogen Oxide (NOx)',
+                                    'Volatile Organic Compounds (VOC)',
+                                    'Carbon Dioxide (CO2)',
+                                    'Carbon Dioxide Equivalent (CO2e)',
+                                    'Total Energy Consumption (MMBTU/day)'
+                                    ], 'Total': [0,0,0,0,0,0,0,0]})
+    if calculate:
+        EmissionsData
+    
+    outputGrid = AgGrid(output_df, fit_columns_on_grid_load=True, enable_enterprise_modules=False)
             
