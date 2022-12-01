@@ -9,8 +9,8 @@ Created on Thu Oct 20 14:52:47 2022
 import streamlit as st
 import pandas as pd
 import numpy as np
-from st_aggrid import AgGrid
-from st_aggrid import GridOptionsBuilder, JsCode, GridUpdateMode
+from st_aggrid_cmaq import AgGrid
+from st_aggrid_cmaq import GridOptionsBuilder, JsCode, GridUpdateMode
 
 EmissionsData = pd.read_csv('EmissionsData.csv')
 

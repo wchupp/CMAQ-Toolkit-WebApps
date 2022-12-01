@@ -13,17 +13,19 @@ from st_aggrid_cmaq import GridOptionsBuilder, JsCode, GridUpdateMode
 
 st.session_state
 
+reset = st.button('reset')
+
 if 'gridData' not in st.session_state:
     df = pd.DataFrame({'a':[0, 1], 'b':[2, 3]})
 else:
     df = pd.DataFrame(st.session_state.gridData)
     df
-reset = st.button('reset')
 
-reload_data = True
+reload_data = False
 if reset:
     reload_data=True
     df = pd.DataFrame({'a':[100, 100], 'b':[100, 100]})
+
 text = st.text_input('input')
 builder = GridOptionsBuilder.from_dataframe(df)
 
@@ -32,8 +34,11 @@ builder.configure_default_column(resizable=False, filterable=False,
                                  editable=True, enterMovesDown=True,
                                  valueFormatter='value + "%"')
 go = builder.build()
+reload_data
 newGrid = AgGrid(df, gridOptions=go, key="grid", reload_data=reload_data, enable_enterprise_modules=False)
-
 st.session_state.gridData = newGrid.data
 st.session_state
+
+# update_on=['cellValueChanged', 'rowDataUpdated']
+
 
