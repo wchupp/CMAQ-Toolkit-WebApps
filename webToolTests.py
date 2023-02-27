@@ -25,6 +25,7 @@ def reset():
 def natDefaultsClick():
     st.session_state['aveTripDistance'] = 2.013
 
+st.set_page_config(page_title="CMAQ Tools", layout="wide")
 st.image('CMAQToolkitLogo.png')
 with st.container():
     '''
