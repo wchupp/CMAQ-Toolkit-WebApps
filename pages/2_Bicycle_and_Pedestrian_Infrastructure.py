@@ -10,7 +10,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from st_aggrid_cmaq import AgGrid
-from st_aggrid_cmaq import GridOptionsBuilder, JsCode, GridUpdateMode
+from st_aggrid_cmaq import GridOptionsBuilder, JsCode, GridUpdateMode, ColumnsAutoSizeMode
 
 EmissionsData = pd.read_csv('EmissionsData.csv')
 
@@ -69,7 +69,8 @@ with st.container():
     builder.configure_columns(["Before", "After", "Change"], resizable=False, filterable=False, sortable=False, suppressMenu=True)
     go = builder.build()
     
-    gridData = AgGrid(df, gridOptions=go, theme='balham', height=63, fit_columns_on_grid_load=True, \
+    gridData = AgGrid(df, gridOptions=go, theme='balham', height=94, fit_columns_on_grid_load=True,\
+                      columns_auto_size_mode = ColumnsAutoSizeMode.FIT_CONTENTS,\
                       reload_data=reload_data, key="beforeAfterGrid", update_mode = GridUpdateMode.MODEL_CHANGED, enable_enterprise_modules=False)
     
     new_data = gridData['data']

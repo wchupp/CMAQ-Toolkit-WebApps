@@ -256,6 +256,10 @@ class AgGrid extends StreamlitComponentBase<State> {
     this.api.addEventListener("firstDataRendered", (e: any) =>
       this.fitColumns()
     )
+
+    this.api.addEventListener("gridSizeChanged", (e: any) =>
+      this.fitColumns()
+    )
     
     this.api.setRowData(this.state.rowData)
 
@@ -396,7 +400,8 @@ class AgGrid extends StreamlitComponentBase<State> {
     if ((themeBase === "dark") && (themeName !== "material")) {
       themeClass = themeClass + "-dark"
     }
-    return themeClass
+    //return themeClass
+    return "ag-theme-alpine"
   }
 
   public render = (): ReactNode => {
