@@ -39,15 +39,18 @@ with st.container():
         their current practice. The tool kit will be released in modules by project 
         type.
         
-        CMAQ Toolkit Video Series: FHWA is developing short 3–4-minute videos for each 
+        **CMAQ Toolkit Video Series**: FHWA is developing short 3–4-minute videos for each 
         tool or set of related tools in the CMAQ Toolkit. See an overview video here 
         and tool-specific videos on the cards below. New videos will be added as they 
         are completed.
         
-        CMAQ Input Data Dictionary provides important details related to various inputs
+        **The CMAQ Input Data Dictionary** provides important details related to various inputs
         associated with emissions estimation processes for CMAQ project eligibility 
         categories including inputs associated with the CMAQ Emissions Calculator 
         Tools.
+        
+        Choose a link from the list of tools to the right or use the navigation
+        bar to the left to go to explore the tools, documentation, and training.
         
         '''
         )
@@ -57,9 +60,9 @@ with st.container():
 
         - Adaptive Traffic Control Systems (ATCS)
         - Alternative Fuel Vehicles and Infrastructure
-        - Bicycle and Pedestrian Improvements
+        - [Bicycle and Pedestrian Improvements](/Bicycle_and_Pedestrian_Infrastructure)
         - Carpooling and Vanpooling
-        - Congestion Reduction and Traffic Flow Improvements
+        - [Congestion Reduction and Traffic Flow Improvements](/Traffic_Flow_Improvements)
         - Diesel Idle Reduction Strategies
         - Diesel Truck and Engine Retrofit & Replacement
         - Dust Mitigation
@@ -82,6 +85,13 @@ with st.container():
             border-radius: 15px;
             padding: 1% 1% 1% 1%;
         }
+        p {
+            font-size: x-large;
+            word-break: break-word;
+        }
+        li {
+            word-break: break-word;
+            }
         </style>
         ''',unsafe_allow_html=True)
         
