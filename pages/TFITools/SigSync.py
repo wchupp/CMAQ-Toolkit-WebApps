@@ -18,7 +18,7 @@ This calculator will estimate the emission reductions resulting from synchronizi
         '''
         <style>
         p {
-            font-size: x-large;
+            font-size: large;
             word-break: break-word;
         }
         li {

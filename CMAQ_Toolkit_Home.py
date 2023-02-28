@@ -86,7 +86,7 @@ with st.container():
             padding: 1% 1% 1% 1%;
         }
         p {
-            font-size: x-large;
+            font-size: large;
             word-break: break-word;
         }
         li {

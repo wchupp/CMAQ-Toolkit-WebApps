@@ -9,7 +9,7 @@ def introduction():
         '''
         <style>
         p {
-            font-size: x-large;
+            font-size: large;
             word-break: break-word;
         }
         li {
