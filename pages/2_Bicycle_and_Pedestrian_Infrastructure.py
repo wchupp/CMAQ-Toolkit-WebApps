@@ -31,6 +31,8 @@ with st.container():
     '''
     # Bicycle and Pedestrian Improvements
     
+    ---
+    
     This calculator will estimate the reduction in emissions resulting from 
     improvements to bicycle and pedestrian infrastructure and associated mode
     shift from passenger vehicles to bicycling or walking, including but not 

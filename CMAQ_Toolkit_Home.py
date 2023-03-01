@@ -18,6 +18,9 @@ with st.container():
         st.markdown(
         '''
         # Welcome to the CMAQ Toolkit
+        
+        ---
+        
         ## Introduction to the CMAQ Toolkit
         
         The Federal Highway Administration (FHWA) Office of Natural Environment 
@@ -55,26 +58,32 @@ with st.container():
         '''
         )
     with col2:
-        '''
-        #### Available Tools
+        st.markdown('''
+                    #### Available Tools
+                    - Adaptive Traffic Control Systems (ATCS)
+                    - Alternative Fuel Vehicles and Infrastructure
+                    - <a href="/Bicycle_and_Pedestrian_Infrastructure" target="_self">Bicycle and Pedestrian Improvements</a>
+                    - Carpooling and Vanpooling
+                    - <a href="/Traffic_Flow_Improvements" target="_self">Congestion Reduction and Traffic Flow Improvements</a>
+                    - Diesel Idle Reduction Strategies
+                    - Diesel Truck and Engine Retrofit & Replacement
+                    - Dust Mitigation
+                    - Electronic Open-Road Tolling (EORT)
+                    - Electric Vehicles and EV Charging Infrastructure
+                    - Locomotive & Marine Engine Retrofit and Replacement
+                    - Managed Lanes
+                    - Non-Road Construction and Intermodal Equipment
+                    - Transit Bus Upgrades & System Improvements
+                    - Transit Bus Service and Fleet Expansion
+                    - Travel Advisories
+                    ''', unsafe_allow_html=True)
+        # st.markdown(
+        # '''
+        # #### Available Tools
 
-        - Adaptive Traffic Control Systems (ATCS)
-        - Alternative Fuel Vehicles and Infrastructure
-        - [Bicycle and Pedestrian Improvements](/Bicycle_and_Pedestrian_Infrastructure)
-        - Carpooling and Vanpooling
-        - [Congestion Reduction and Traffic Flow Improvements](/Traffic_Flow_Improvements)
-        - Diesel Idle Reduction Strategies
-        - Diesel Truck and Engine Retrofit & Replacement
-        - Dust Mitigation
-        - Electronic Open-Road Tolling (EORT)
-        - Electric Vehicles and EV Charging Infrastructure
-        - Locomotive & Marine Engine Retrofit and Replacement
-        - Managed Lanes
-        - Non-Road Construction and Intermodal Equipment
-        - Transit Bus Upgrades & System Improvements
-        - Transit Bus Service and Fleet Expansion
-        - Travel Advisories
-        '''
+        
+        # '''
+        # , unsafe_allow_html=True)
         st.markdown(
         '''
         <style>
