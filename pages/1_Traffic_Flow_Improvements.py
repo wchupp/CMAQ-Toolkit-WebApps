@@ -40,7 +40,6 @@ with st.container():
     stx.TabBarItemData(id="TWLTLTab", title="Two Way Left Turn Lanes", description="")],
     default="TFITab")
     
-    print(chosen_id)
     ActiveTab = st.container()
                        
     #TFITab, SigSyncTab, IntImpTab, RoundTab, TWLTLTab = st.tabs(['Introduction', 'Signal Synchronization', 'Intersection Improvements', 'Roundabouts', 'Two Way Left Turn Lanes'])

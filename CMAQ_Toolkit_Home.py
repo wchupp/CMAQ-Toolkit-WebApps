@@ -7,16 +7,32 @@ Created on Thu Oct 20 14:52:47 2022
 
 # importing modules
 import streamlit as st
+from utils.SetContainerStyle import *
 st.set_page_config(page_title="CMAQ Tools", layout="wide")
 
-
-
+st.image('CMAQToolkitLogo.png')
 with st.container():
+    SetContainerStyle('''
+                      background-color:rgb(0 0 242);
+                      border-style: solid;
+                      border-width: 4px;
+                      border-radius: 0px;
+                      padding: 2% 2% 2% 2%;
+                      ''')
+    
     col1, col2 = st.columns([2, 1])
     with col1:
-        st.image('CMAQToolkitLogo.png')
+
+        SetContainerStyle('''
+                          background-color:rgb(255 251 242);border-style: solid;
+                          border-width: 3px;
+                          border-radius: 15px;
+                          padding: 1% 1% 1% 1%;
+                          ''')    
+        
         st.markdown(
         '''
+        
         # Welcome to the CMAQ Toolkit
         
         ---
@@ -54,11 +70,16 @@ with st.container():
         
         Choose a link from the list of tools to the right or use the navigation
         bar to the left to go to explore the tools, documentation, and training.
-        
-        '''
-        )
+        ''')
     with col2:
         st.markdown('''
+                    
+                    <div 
+                        style="background-color:rgb(255 251 242);border-style: solid;
+                        border-width: 3px;
+                        border-radius: 15px;
+                        padding: 2% 2% 2% 2%;">
+                    
                     #### Available Tools
                     - Adaptive Traffic Control Systems (ATCS)
                     - Alternative Fuel Vehicles and Infrastructure
@@ -76,31 +97,8 @@ with st.container():
                     - Transit Bus Upgrades & System Improvements
                     - Transit Bus Service and Fleet Expansion
                     - Travel Advisories
+                    </div>
                     ''', unsafe_allow_html=True)
-        # st.markdown(
-        # '''
-        # #### Available Tools
 
         
-        # '''
-        # , unsafe_allow_html=True)
-        st.markdown(
-        '''
-        <style>
-        [class="css-1r6slb0 e1tzin5v2"]{
-            background: rgb(255 251 242);
-            border-style: solid;
-            border-width: 3px;
-            border-radius: 15px;
-            padding: 1% 1% 1% 1%;
-        }
-        p {
-            font-size: large;
-            word-break: break-word;
-        }
-        li {
-            word-break: break-word;
-            }
-        </style>
-        ''',unsafe_allow_html=True)
         
