@@ -12,7 +12,14 @@ import numpy as np
 from st_aggrid_cmaq import AgGrid
 from st_aggrid_cmaq import GridOptionsBuilder, JsCode, GridUpdateMode, ColumnsAutoSizeMode
 from utils.SetContainerStyle import *
+import pyodbc
 
+import pyodbc
+server = 'emissions-server.database.windows.net'
+database = 'emissions_sqldatabase'
+username = 'emissions'
+password = '{Moves1970}'   
+driver= '{ODBC Driver 17 for SQL Server}'
 
 def bikeped():
     EmissionsData = pd.read_csv('EmissionsData.csv')
@@ -27,6 +34,16 @@ def bikeped():
         
     def natDefaultsClick():
         st.session_state['aveTripDistance'] = 2.013
+
+    with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
+        print("hererererer")
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT TOP 3 name, collation_name FROM sys.databases")
+            row = cursor.fetchone()
+            while row:
+                print (str(row[0]) + " " + str(row[1]))
+                row = cursor.fetchone()
+
     with st.container():
         SetContainerID('BikePedMain')
         st.markdown(
